@@ -12,7 +12,10 @@ export class CheaterService {
       this.value.push(event.key);
 
       if (this.value.slice(-5).join('').toLocaleLowerCase() === 'выйти') {
-        alert('код сработал!');
+        var audio = new Audio();
+        audio.preload = 'auto';
+        audio.src = 'assets/woman-kiss.mp3';
+        audio.play();
 
         localStorage.clear();
         this.router.navigate(['auth']);

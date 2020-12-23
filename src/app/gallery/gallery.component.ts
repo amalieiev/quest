@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
+  isHold = true;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isHold = false;
+    }, 400);
+  }
 }

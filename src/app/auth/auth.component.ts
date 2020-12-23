@@ -7,6 +7,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-auth',
@@ -32,12 +34,32 @@ export class AuthComponent implements OnInit, AfterViewInit {
 
   onLogin() {
     if (this.input.nativeElement.value.toLocaleLowerCase() === this.secret) {
-      localStorage.setItem('auth', 'true');
-      this.router.navigateByUrl('gallery');
+      var audio = new Audio();
+      audio.preload = 'auto';
+      audio.src = 'assets/woman-screaming.mp3';
+      audio.play();
+
+      of({})
+        .pipe(
+          delay(1000),
+          tap(() => {
+            localStorage.setItem('auth', 'true');
+            this.router.navigateByUrl('gallery');
+          }),
+          delay(3000),
+          tap(() => {
+            audio.pause();
+          })
+        )
+        .toPromise();
     } else {
-      alert('Неверно');
       this.input.nativeElement.value = '';
       this.input.nativeElement.focus();
+
+      var audio = new Audio();
+      audio.preload = 'auto';
+      audio.src = 'assets/woman-laugh.mp3';
+      audio.play();
     }
   }
 
