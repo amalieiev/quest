@@ -54,7 +54,6 @@ export class AuthComponent implements OnInit, AfterViewInit {
             localStorage.setItem('auth', 'true');
             this.router.navigateByUrl('gallery');
           }),
-          delay(2000),
           tap(() => {
             audio.pause();
           })
