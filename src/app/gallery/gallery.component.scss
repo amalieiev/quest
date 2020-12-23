@@ -7,4 +7,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-color: black;
+  background-image: url(../../assets/gallery.jpg);
+  background-size: cover;
+}
+
+.img-1 {
+  transform: translate(200px, 50px) rotate(30deg) scale(0.7);
+}
+
+.img-2 {
+  transform: translate(20px, 154px) rotate(130deg) scale(0.7);
+}
+
+.img-3 {
+  transform: translate(20px, -50px) rotate(230deg) scale(0.7);
+}
+
+.img-4 {
+  transform: translate(-88px, -80px) rotate(130deg) scale(0.7);
+}
+
+.img-5 {
+  transform: translate(-180px, 95px) rotate(-86deg) scale(0.7);
+}
+
+.photo {
+  transition: all 2s;
+  &:hover {
+    transform: none;
+    z-index: 1;
+  }
 }

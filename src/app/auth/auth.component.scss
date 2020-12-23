@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(../../assets/auth.jpg);
+  background-size: cover;
 }
 
 input {
@@ -13,10 +15,14 @@ input {
   padding: 0.3rem 1rem;
   padding-right: 0;
   height: 20px;
-  color: #4d4d4d;
+  color: white;
   font-weight: bold;
   width: 125px;
   letter-spacing: 0.5rem;
+}
+
+input::placeholder {
+  color: white;
 }
 
 button {

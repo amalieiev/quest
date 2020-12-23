@@ -11,7 +11,7 @@ export class CheaterService {
     document.addEventListener('keyup', (event) => {
       this.value.push(event.key);
 
-      if (this.value.slice(-5).join('').toLocaleLowerCase() === 'сброс') {
+      if (this.value.slice(-5).join('').toLocaleLowerCase() === 'выйти') {
         alert('код сработал!');
 
         localStorage.clear();

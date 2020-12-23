@@ -1,3 +1,6 @@
 <div class="canvas">
-  <app-photo></app-photo>
+  <app-photo
+    *ngFor="let item of [1, 2, 3, 4, 5]"
+    class="photo img-{{ item }}"
+  ></app-photo>
 </div>
