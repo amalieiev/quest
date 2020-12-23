@@ -20,6 +20,9 @@ export class AuthComponent implements OnInit, AfterViewInit {
 
   private secret = 'страпон';
 
+  public isFail = false;
+  public isSuccess = false;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
@@ -39,14 +42,19 @@ export class AuthComponent implements OnInit, AfterViewInit {
       audio.src = 'assets/woman-screaming.mp3';
       audio.play();
 
+      this.isSuccess = true;
+      setTimeout(() => {
+        this.isSuccess = false;
+      }, 2000);
+
       of({})
         .pipe(
-          delay(1000),
+          delay(2000),
           tap(() => {
             localStorage.setItem('auth', 'true');
             this.router.navigateByUrl('gallery');
           }),
-          delay(3000),
+          delay(2000),
           tap(() => {
             audio.pause();
           })
@@ -55,6 +63,11 @@ export class AuthComponent implements OnInit, AfterViewInit {
     } else {
       this.input.nativeElement.value = '';
       this.input.nativeElement.focus();
+
+      this.isFail = true;
+      setTimeout(() => {
+        this.isFail = false;
+      }, 300);
 
       var audio = new Audio();
       audio.preload = 'auto';
