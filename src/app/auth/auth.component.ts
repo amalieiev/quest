@@ -7,8 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { AudioService } from '../audio.service';
 
 @Component({
   selector: 'app-auth',
@@ -23,7 +22,7 @@ export class AuthComponent implements OnInit, AfterViewInit {
   public isFail = false;
   public isSuccess = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private audioService: AudioService) {}
 
   ngOnInit(): void {}
   ngAfterViewInit(): void {
@@ -37,28 +36,15 @@ export class AuthComponent implements OnInit, AfterViewInit {
 
   onLogin() {
     if (this.input.nativeElement.value.toLocaleLowerCase() === this.secret) {
-      var audio = new Audio();
-      audio.preload = 'auto';
-      audio.src = 'assets/woman-screaming.mp3';
-      audio.play();
+      this.audioService.play('woman-screaming', { duration: 2000 }).then(() => {
+        localStorage.setItem('auth', 'true');
+        this.router.navigateByUrl('gallery');
+      });
 
       this.isSuccess = true;
       setTimeout(() => {
         this.isSuccess = false;
       }, 2000);
-
-      of({})
-        .pipe(
-          delay(2000),
-          tap(() => {
-            localStorage.setItem('auth', 'true');
-            this.router.navigateByUrl('gallery');
-          }),
-          tap(() => {
-            audio.pause();
-          })
-        )
-        .toPromise();
     } else {
       this.input.nativeElement.value = '';
       this.input.nativeElement.focus();
@@ -68,10 +54,7 @@ export class AuthComponent implements OnInit, AfterViewInit {
         this.isFail = false;
       }, 300);
 
-      var audio = new Audio();
-      audio.preload = 'auto';
-      audio.src = 'assets/woman-laugh.mp3';
-      audio.play();
+      this.audioService.play('woman-laugh');
     }
   }
 

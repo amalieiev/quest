@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AudioService } from '../audio.service';
 
 @Component({
   selector: 'app-photo',
@@ -6,25 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo.component.scss'],
 })
 export class PhotoComponent implements OnInit {
-  constructor() {}
+  constructor(private audioService: AudioService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      var audio = new Audio();
-      audio.preload = 'auto';
-      audio.src = 'assets/spin.mp3';
-      audio.play();
-    }, 200);
+    this.audioService.play('spin', { offset: 200 });
   }
 
   onMouseenter() {
-    var audio = new Audio();
-    audio.preload = 'auto';
-    audio.src = 'assets/spin.mp3';
-    audio.play();
+    this.audioService.play('spin', { duration: 300 });
+  }
 
-    setTimeout(() => {
-      audio.pause();
-    }, 300);
+  onClick() {
+    this.audioService.play('spin', { duration: 300 });
   }
 }
