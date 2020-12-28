@@ -17,7 +17,7 @@ import { AudioService } from '../audio.service';
 export class AuthComponent implements OnInit, AfterViewInit {
   @ViewChild('input') input: ElementRef<HTMLInputElement>;
 
-  private secret = 'страпон';
+  private secret = 'кукла';
 
   public isFail = false;
   public isSuccess = false;
