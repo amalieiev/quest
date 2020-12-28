@@ -1,8 +1,9 @@
-<div class="canvas">
+<div class="canvas" (click)="onClickOutside()">
   <app-photo
-    *ngFor="let item of [1, 2, 3, 4, 5]"
-    class="photo img-{{ item }}"
-    [photo]="item"
-    [ngClass]="{ hold: isHold }"
+    *ngFor="let item of items"
+    class="photo img-{{ item.name }}"
+    [photo]="item.name"
+    [ngClass]="{ hold: isHold, active: item.isActive }"
+    (click)="onClick($event, item)"
   ></app-photo>
 </div>

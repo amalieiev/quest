@@ -14,12 +14,4 @@ export class PhotoComponent implements OnInit {
   ngOnInit(): void {
     this.audioService.play('spin', { offset: 200 });
   }
-
-  onMouseenter() {
-    this.audioService.play('spin', { duration: 300 });
-  }
-
-  onClick() {
-    this.audioService.play('spin', { duration: 300 });
-  }
 }

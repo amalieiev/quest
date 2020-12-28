@@ -30,16 +30,17 @@
 }
 
 .img-5 {
-  transform: translate(-180px, 95px) rotate(-86deg) scale(0.7);
+  transform: translate(-10px, 95px) rotate(-86deg) scale(0.7);
 }
 
 .photo {
-  &.hold {
-    transform: none;
-  }
   transition: all 2s;
-  &:hover {
+
+  &.active {
     transform: none;
     z-index: 1;
+  }
+  &.hold {
+    transform: none;
   }
 }
