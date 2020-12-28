@@ -64,7 +64,7 @@ export class AuthComponent implements OnInit, AfterViewInit {
     }
 
     if (
-      this.input.nativeElement.value.length >= 7 &&
+      this.input.nativeElement.value.length >= 5 &&
       event.key !== 'Backspace'
     ) {
       event.preventDefault();

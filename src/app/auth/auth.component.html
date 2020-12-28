@@ -1,8 +1,11 @@
 <div class="holder" [ngClass]="{ fail: isFail, success: isSuccess }">
-  <input
-    #input
-    type="text"
-    placeholder="_____"
-    (keydown)="onKeydown($event)"
-  /><button (click)="onLogin()">Войти</button>
+  <div class="input">
+    <input
+      #input
+      type="text"
+      placeholder="_____"
+      (keydown)="onKeydown($event)"
+    />
+  </div>
+  <button (click)="onLogin()">Войти</button>
 </div>

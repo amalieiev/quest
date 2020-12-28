@@ -9,16 +9,24 @@
 
 input {
   background-color: transparent;
-  display: inline-block;
-  margin: auto;
-  border: 1px solid #c4c4c4;
-  padding: 0.3rem 1rem;
-  padding-right: 0;
-  height: 20px;
+  display: flex;
+  border: 1px solid transparent;
   color: white;
-  font-weight: bold;
-  width: 125px;
+  width: 100px;
   letter-spacing: 0.5rem;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-left: 1rem;
+  width: 150px;
+  border: 1px solid #efefef;
+  height: 40px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 input::placeholder {
@@ -26,6 +34,9 @@ input::placeholder {
 }
 
 .holder {
+  display: flex;
+  flex-direction: row;
+
   &.fail {
     transition: all 0.3s;
     opacity: 0;
@@ -40,17 +51,22 @@ input::placeholder {
 }
 
 button {
-  border: 1px solid #c4c4c4;
+  border: 1px solid #efefef;
+  border-left: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
   display: inline-block;
   color: #4d4d4d;
   font-weight: bold;
 
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 40px;
 
   cursor: pointer;
-  height: 31px;
-  border-left: 0;
+
   &:hover {
     background-color: #d4d4d4;
   }
